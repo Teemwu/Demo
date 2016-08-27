@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+    <style>
+        .box{
+            width:720px;
+            margin:0 auto;
+            background-color: #000;
+            clear: both;
+            -webkit-filter: blur(15px) saturate(800%);
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        .box:after{
+            display: block;
+            content: '';
+            clear: both;
+            overflow: hidden;
+        }
+        .box>span{
+            width:80px;
+            height:60px;
+            float: left;
+            border-radius: 100%;
+            background-color: red;
+            margin:20px;
+            transform: translateZ(0);
+        }
+        #repulse{
+            display: block;
+            width:80px;
+            height:60px;
+            border-radius:100%;
+            background-color: #add8e6;
+            -webkit-filter: saturate(500%);
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <i id="repulse"></i>
+</div>
+<script>
+    document.body.addEventListener("mousemove",function (event) {
+        document.getElementById("repulse").style.cssText="top:"+(event.clientY-30)+"px;left:"+(event.clientX-40)+"px;";
+    })
+</script>
+</body>
+</html>
