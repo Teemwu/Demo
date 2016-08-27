@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cube</title>
+    <style>
+        html{
+            background: linear-gradient(0deg,darkred,darkgoldenrod);
+            height:100%;
+        }
+        #main{
+            margin-top:180px;
+            perspective: 1000px;
+
+        }
+        .cub,#sl{
+            width:200px;
+            height:200px;
+            margin:auto;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            animation:move 13s infinite linear;
+
+        }
+        #sl{
+            background-color: transparent;
+            border:none;
+            animation:move 3s infinite linear;
+        }
+        .tp{
+            transform: translateZ(100px);
+        }
+        .bt{
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+        .fr{
+            transform:rotateY(90deg) translateZ(100px);
+        }
+        .bk{
+            transform:rotateY(-90deg) translateZ(100px);
+        }
+        .lt{
+            transform:rotateX(90deg) translateZ(100px);
+        }
+        .rt{
+            transform:rotateX(-90deg) translateZ(100px);
+        }
+        #main:hover .tp{
+            transform: translateZ(200px);
+        }
+        #main:hover .bt{
+            transform: translateZ(-200px) rotateY(180deg);
+        }
+        #main:hover .fr{
+            transform:rotateY(90deg) translateZ(200px);
+        }
+        #main:hover .bk{
+            transform:rotateY(-90deg) translateZ(200px);
+        }
+        #main:hover .lt{
+            transform:rotateX(90deg) translateZ(200px);
+        }
+        #main:hover .rt{
+            transform:rotateX(-90deg) translateZ(200px);
+        }
+        ._tp{
+            transform: translateZ(50px);
+        }
+        ._bt{
+            transform: translateZ(-50px) rotateY(180deg);
+        }
+        ._fr{
+            transform:rotateY(90deg) translateZ(50px);
+        }
+        ._bk{
+            transform:rotateY(-90deg) translateZ(50px);
+        }
+        ._lt{
+            transform:rotateX(90deg) translateZ(50px);
+        }
+        ._rt{
+            transform:rotateX(-90deg) translateZ(50px);
+        }
+        .cub>div{
+            width:100%;
+            height:100%;
+            position: absolute;
+            background-color: rgba(123,123,123,.8);
+            font-size:76px;
+            color: rgba(233,233,233,.7);
+            text-align: center;
+            line-height:200px;
+            font-weight:bold;
+            border:1px solid #ffffff;
+            transition: transform .2s;
+        }
+        #sl>span{
+            display: block;
+            width:100px;
+            height:100px;
+            background-color: rgba(23,23,23,.8);
+            position: absolute;
+            top: 50px;
+            left:50px;
+            border:1px solid #ffffff;
+        }
+        @keyframes move {
+            0%{
+                transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="cub">
+        <div class="tp">1</div>
+        <div class="bt">2</div>
+        <div class="fr">3</div>
+        <div class="bk">4</div>
+        <div class="lt">5</div>
+        <div class="rt">6</div>
+
+        <div id="sl">
+            <span class="_tp"></span>
+            <span class="_bt"></span>
+            <span class="_fr"></span>
+            <span class="_bk"></span>
+            <span class="_lt"></span>
+            <span class="_rt"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
