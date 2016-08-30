@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<iframe id="if" src="test.html"></iframe>
+<script>
+    //注意：必须等页面加载完才能操作iframe内元素
+   window.onload=function () {
+       //iframe
+       var target=document.getElementById("if");
+       //#btn为iframe中页面的div标签id
+       target.contentDocument.body.querySelector("#btn").onclick=function () {
+           alert(123);
+       };
+   }
+</script>
+</body>
+</html>
