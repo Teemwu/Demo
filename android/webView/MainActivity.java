@@ -20,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.web_view);
         String url = "http://nooby.cn";
         webView.loadUrl(url);
+        
+        //调用本地资源
+        //在res文件同级创建assets文件夹并将前端页面文件放在assets中
+        // String locUrl="file:///android_asset/singlePic.html";
+        // webView.loadUrl(locUrl);
 
         //允许使用js
         webView.getSettings().setJavaScriptEnabled(true);
