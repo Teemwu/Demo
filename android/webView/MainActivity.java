@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         //在res文件同级创建assets文件夹并将前端页面文件放在assets中
         // String locUrl="file:///android_asset/singlePic.html";
         // webView.loadUrl(locUrl);
+        
+        //调用SD卡目录资源
+        //String url="file://"+ Environment.getExternalStorageDirectory().getAbsolutePath()+"/Board/singlePic.html";
 
         //允许使用js
         webView.getSettings().setJavaScriptEnabled(true);
