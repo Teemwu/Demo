@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+</head>
+<body>
+<canvas id="canvas" width="400" height="400"></canvas>
+<script>
+    function Clock() {
+        var dr=document.getElementById("canvas")
+            ,ctx=dr.getContext("2d")
+            ,now = new Date()
+            ,s=now.getSeconds()
+            ,m=now.getMinutes()
+            ,h=now.getHours();
+
+        h=h>=12?h-12:h;
+        //从这里开始保存画布
+        ctx.save();
+
+        //清除画布
+        ctx.clearRect(0,0,400,400);
+        ctx.lineCap = "round";
+        //设置旋转中心
+        ctx.translate(200,200);
+
+        //开始路径
+        ctx.beginPath();
+        ctx.arc(0,0,200,0,2*Math.PI,true);
+        ctx.moveTo(194,0);
+        ctx.arc(0,0,194,0,2*Math.PI,false);
+        ctx.stroke();
+        ctx.restore();
+
+        //画外环数字
+        ctx.save();
+        ctx.translate(200,200);
+        for(var i=1;i<=12;i++){
+            ctx.beginPath();
+            ctx.rotate(Math.PI/6);
+            ctx.textBaseline="middle";
+            ctx.textAlign="center";
+            ctx.fillText(i.toString(),0,-180);
+            ctx.stroke();
+        }
+        ctx.restore();
+
+        //画秒针
+        ctx.save();
+        ctx.translate(200,200);
+        ctx.rotate(s*Math.PI/30);
+        ctx.beginPath();
+        ctx.moveTo(0,-160);
+        ctx.lineTo(0,0);
+        ctx.stroke();
+        ctx.restore();
+
+        //画分针
+        ctx.save();
+        ctx.translate(200,200);
+        ctx.rotate((Math.PI/30)*m+(Math.PI/1800)*s);
+        ctx.beginPath();
+        ctx.moveTo(0,-140);
+        ctx.lineTo(0,0);
+        ctx.stroke();
+        ctx.restore();
+
+        //画时针
+        ctx.save();
+        ctx.translate(200,200);
+        ctx.rotate((Math.PI/6)*h+(Math.PI/360)*m+(Math.PI/21600)*s);
+        ctx.beginPath();
+        ctx.moveTo(0,-120);
+        ctx.lineTo(0,0);
+        ctx.stroke();
+        ctx.restore();
+        window.requestAnimationFrame(Clock);
+    }
+    window.requestAnimationFrame(Clock);
+
+</script>
+</body>
+</html>
